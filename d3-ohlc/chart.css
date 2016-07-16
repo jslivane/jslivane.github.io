@@ -1,0 +1,99 @@
+body, pre, input, select, textarea, button { font-family: 'Nanum Gothic'; }
+
+@font-face {
+    font-family: 'Nanum Gothic';
+    src: local('Nanum Gothic'), local('Apple SD Gothic Neo'), local('Malgun Gothic');
+}
+
+body { padding-top: 50px; padding-bottom: 70px; }
+
+.clickable { cursor: pointer; }
+
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-center, .center-wrapper { text-align: center; }
+.center-wrapper * { margin: 0 auto; }
+
+.force-wrap { white-space: normal !important; }
+.no-margin { margin: 0; }
+
+.pull-left { float: left; }
+.pull-right { float: right; }
+
+.scroll-x { overflow-x: scroll; }
+.scroll-y { overflow-y: scroll; }
+
+
+/* http://www.w3.org/TR/SVG/styling.html https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute */
+svg.chart {
+    background-color: white;
+    font-family: 'Nanum Gothic';
+}
+
+svg.chart text.watermark {
+    font-size: 16px;
+    fill: #bbb;
+}
+svg.chart text.description {
+    font-size: 18px;
+    fill: #666;
+}
+
+svg.chart .axis text {
+    font-size: 10px;
+}
+
+svg.chart .axis.y.bar text {
+    font-size: 9px;
+}
+
+svg.chart .axis .domain,
+svg.chart .axis .tick line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+svg.chart .axis.annotate text.annotate { font-weight: bold; text-anchor: middle; }
+svg.chart .axis.annotate path.annotate { fill: #ddd80e; fill-opacity: 0.7; }
+
+svg.chart .gridlines {
+    stroke: lightgrey;
+    shape-rendering: crispEdges;
+    stroke-width: 1;
+}
+
+svg.chart .bar path, svg.chart .bar rect { opacity: 1; }
+svg.chart .bar path:hover, svg.chart .bar rect:hover { opacity: 0.5; }
+
+svg.chart .bar rect { stroke: #000; stroke-width: 0px; stroke-opacity: 0.5; } /* stroke-width: 0.5px; */
+svg.chart .bar.up-day path { stroke: red; }
+svg.chart .bar.down-day path { stroke: blue; }
+svg.chart .bar.up-day rect { fill: red; }
+svg.chart .bar.down-day rect { fill: blue; }
+/*svg.chart .bar rect.volume { fill: steelblue; }*/
+svg.chart .bar.up-day rect.volume { fill: red; }
+svg.chart .bar.down-day rect.volume { fill: blue; }
+
+svg.chart .aux-lines path.bb { fill: none; stroke: black; stroke-width: 1px; }
+
+svg.chart .aux-lines .legend rect { stroke: black; stroke-width: 0px; }
+svg.chart .aux-lines .legend text { font: 10px sans-serif; }
+
+/*
+svg.chart .y.axis.annotate .legend text { text-anchor: start; }
+*/
+
+svg.chart .price-lines path.price { fill: none; stroke: black; stroke-width: 1px; }
+
+div.tooltip {
+    position: absolute;
+    text-align: left;
+    min-width: 120px;
+    min-height: 120px;
+    padding: 10px;
+    background: lightsteelblue;
+    border: 0px;
+    border-radius: 8px;
+    pointer-events: none;
+}

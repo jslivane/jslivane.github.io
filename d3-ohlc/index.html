@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="ko">
+<title>OHLC chart with D3.js</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="chart.js" charset="utf-8"></script>	
+<link rel="stylesheet" href="chart.css" />
+<script>
+var stock_name = 'SK하이닉스';
+var stock_code = '000660';
+
+$(document).ready(function(){
+	$.ajax({url: stock_code + '/2016.json',
+        type: 'GET',
+        data: {},
+        dataType: 'json',
+        success: function(data, textStatus, jqXHR){
+            $.each(data, function(i, e) {
+                e.no = i;
+                e.d = parse_date_1(e.d);
+
+            });
+
+            var w = undefined,
+                h = undefined; // $(window).height() * 0.8,
+                chart_name = stock_name + ' ' + stock_code;
+
+            draw_chart_log('#chart' + stock_code, data, w, h, undefined, chart_name);
+
+        },
+        complete: function(jqXHR, textStatus) {
+
+        }
+    });
+
+});
+</script>	
+</head>
+<body>
+
+<div id="chart000660"></div>
+
+</body>
+</html>
