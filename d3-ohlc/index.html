@@ -16,6 +16,7 @@ $(document).ready(function(){
         data: {},
         dataType: 'json',
         success: function(data, textStatus, jqXHR){
+
             $.each(data, function(i, e) {
                 e.no = i;
                 e.d = parse_date_1(e.d);
@@ -27,6 +28,10 @@ $(document).ready(function(){
                 chart_name = stock_name + ' ' + stock_code;
 
             draw_chart_log('#chart' + stock_code, data, w, h, undefined, chart_name);
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+        	console.info(errorThrown);
 
         },
         complete: function(jqXHR, textStatus) {
